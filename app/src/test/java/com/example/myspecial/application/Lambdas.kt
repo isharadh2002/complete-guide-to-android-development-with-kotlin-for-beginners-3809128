@@ -15,8 +15,9 @@ class LambdasTest {
     @Test
     fun lambdaWithType() {
         // TODO: create lambda variable
+        val nameFilter:(User) -> Boolean = {it.name.isNotEmpty()}
 
-        val usersWithNames = users.filter()
+        val usersWithNames = users.filter(nameFilter)
 
         println(usersWithNames)
     }
@@ -24,7 +25,7 @@ class LambdasTest {
     @Test
     fun lambdaInlined() {
         // TODO: inline lambda
-        val usersWithNoNames = users.filter()
+        val usersWithNoNames = users.filter({it.name.isEmpty()})
 
         println(usersWithNoNames)
     }
