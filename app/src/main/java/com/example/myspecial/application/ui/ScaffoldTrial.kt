@@ -13,6 +13,7 @@ import androidx.compose.ui.*
 import androidx.compose.ui.text.style.*
 import androidx.compose.ui.tooling.preview.*
 import androidx.compose.ui.unit.*
+import com.example.myspecial.application.ui.theme.AppTheme
 import com.example.myspecial.application.ui.theme.MySpecialApplicationTheme
 
 class ScaffoldTrial : ComponentActivity() {
@@ -20,7 +21,7 @@ class ScaffoldTrial : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MySpecialApplicationTheme {
+            AppTheme {
                 ScaffoldExample()
             }
         }
@@ -90,7 +91,7 @@ fun ScaffoldExample() {
 
 @Composable
 fun ScaffoldExamplePreview() {
-    MySpecialApplicationTheme {
+    AppTheme {
         ScaffoldExample()
     }
 }
