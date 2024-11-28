@@ -10,9 +10,11 @@ import androidx.compose.material3.*
 import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.*
 import androidx.compose.ui.*
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.*
 import androidx.compose.ui.tooling.preview.*
 import androidx.compose.ui.unit.*
+import com.example.myspecial.application.R
 import com.example.myspecial.application.ui.theme.AppTheme
 import com.example.myspecial.application.ui.theme.MySpecialApplicationTheme
 
@@ -28,6 +30,7 @@ class ScaffoldTrial : ComponentActivity() {
     }
 }
 
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ScaffoldExample() {
@@ -41,7 +44,7 @@ fun ScaffoldExample() {
                     titleContentColor = MaterialTheme.colorScheme.primary,
                 ),
                 title = {
-                    Text("Top app bar")
+                    Text(stringResource(R.string.app_bar_title))
                 }
             )
         },
