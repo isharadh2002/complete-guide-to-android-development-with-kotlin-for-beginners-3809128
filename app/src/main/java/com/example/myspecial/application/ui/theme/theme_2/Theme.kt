@@ -1,4 +1,4 @@
-package com.example.myspecial.application.ui.theme
+package com.example.myspecial.application.ui.theme.theme_2
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -252,7 +252,7 @@ val unspecified_scheme = ColorFamily(
 )
 
 @Composable
-fun AppTheme(
+fun AppTheme_2(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,
@@ -270,7 +270,7 @@ fun AppTheme(
 
   MaterialTheme(
     colorScheme = colorScheme,
-    //typography = AppTypography,
+    typography = AppTypography,
     content = content
   )
 }

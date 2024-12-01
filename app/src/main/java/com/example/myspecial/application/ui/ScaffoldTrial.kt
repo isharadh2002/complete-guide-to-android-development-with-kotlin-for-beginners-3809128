@@ -18,13 +18,14 @@ import androidx.compose.ui.tooling.preview.*
 import androidx.compose.ui.unit.*
 import com.example.myspecial.application.R
 import com.example.myspecial.application.ui.theme.*
+import com.example.myspecial.application.ui.theme.theme_2.*
 
 class ScaffoldTrial : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AppTheme {
+            AppTheme_2 {
                 ScaffoldExample()
             }
         }
@@ -70,13 +71,15 @@ fun ScaffoldExample() {
     ) { innerPadding ->
         Column(
             modifier = Modifier
-                .padding(innerPadding),
+                .padding(innerPadding)
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
             Greeting("Android!!!", Modifier)
             Text(
-                modifier = Modifier.padding(10.dp),
+                modifier = Modifier.padding(top = 10.dp, bottom = 25.dp, start = 25.dp, end = 25.dp),
                 text =
                 """
                     This is an example of a scaffold. It uses the Scaffold composable's parameters to create a screen with a simple top app bar, bottom app bar, and floating action button.
@@ -89,6 +92,12 @@ fun ScaffoldExample() {
                 color = MaterialTheme.colorScheme.onBackground,
                 textAlign = TextAlign.Justify
             )
+            val card_title = "Card Title"
+            val card_description =
+                "The Card composable acts as a Material Design container for your UI. Cards typically present a single coherent piece of content."
+            CardExample(card_title, card_description, Modifier)
+            CardExample(card_title, card_description, Modifier)
+            CardExample(card_title, card_description, Modifier)
         }
     }
 }
@@ -100,30 +109,27 @@ fun ScaffoldExample() {
 
 @Composable
 fun ScaffoldExamplePreview() {
-    AppTheme {
+    AppTheme_2 {
         ScaffoldExample()
     }
 }
 
-
-
 @Composable
-fun Greeting(name: String, modifier: Modifier){
-    Column (
+fun Greeting(name: String, modifier: Modifier) {
+    Column(
         modifier = modifier.fillMaxWidth()
-    ){
+    ) {
         Text(
-            modifier = modifier.align(Alignment.CenterHorizontally)
+            modifier = modifier
+                .align(Alignment.CenterHorizontally)
                 .padding(top = 30.dp, bottom = 5.dp, start = 10.dp, end = 10.dp)
-                .fillMaxWidth()
-                .clickable {  },
+                .fillMaxWidth(),
             text = "Hello $name",
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Light,
             color = MaterialTheme.colorScheme.tertiary,
             textAlign = TextAlign.Center
         )
-
     }
 }
 
@@ -131,9 +137,57 @@ fun Greeting(name: String, modifier: Modifier){
     showBackground = true,
     device = Devices.PIXEL_7_PRO
 )
+
 @Composable
 fun GreetingPreview() {
-    MySpecialApplicationTheme {
+    AppTheme {
         Greeting("Android", Modifier)
+    }
+}
+
+@Composable
+fun CardExample(title: String, description: String, modifier: Modifier) {
+    Card(
+        modifier = modifier
+            .height(400.dp)
+            .width(350.dp)
+            .padding(20.dp)
+    ) {
+        Column(
+            modifier = modifier
+        ) {
+            Text(
+                modifier = modifier
+                    .padding(top = 20.dp, bottom = 10.dp, start = 10.dp, end = 10.dp)
+                    .fillMaxWidth(),
+                style = MaterialTheme.typography.headlineMedium,
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.primary,
+                text = title
+            )
+            Text(
+                modifier = modifier
+                    .padding(20.dp),
+                text = description,
+                textAlign = TextAlign.Justify,
+                style = MaterialTheme.typography.bodyMedium,
+            )
+        }
+    }
+}
+
+@Preview(
+    showBackground = true,
+    device = "spec:width=300dp,height=500dp"
+)
+
+@Composable
+fun CardExamplePreview() {
+    val title = "Card Title"
+    val description =
+        "The Card composable acts as a Material Design container for your UI. Cards typically present a single coherent piece of content."
+    AppTheme {
+        CardExample(title, description, Modifier)
     }
 }

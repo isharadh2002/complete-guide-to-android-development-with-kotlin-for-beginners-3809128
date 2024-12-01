@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MySpecialApplicationTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
+                    com.example.myspecial.application.ui.Greeting(
                         name = "Android",
                         modifier = Modifier.padding(innerPadding)
                     )
@@ -63,7 +63,7 @@ fun Greeting(name: String, modifier: Modifier) {
 @Composable
 fun MyComposableNexusPreview() {
     MySpecialApplicationTheme {
-        Greeting(
+        com.example.myspecial.application.ui.Greeting(
             name = "Android",
             modifier = Modifier
         )
