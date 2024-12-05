@@ -20,7 +20,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.two.trees.R
+import com.example.myspecial.application.R
 import com.example.two.trees.ui.theme.AppTheme
 
 // LazyColumn example
