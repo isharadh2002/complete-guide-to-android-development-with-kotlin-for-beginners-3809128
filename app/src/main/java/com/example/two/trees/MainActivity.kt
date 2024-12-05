@@ -50,9 +50,10 @@ fun TwoTreesApp() {
                 Image(
                     modifier = Modifier.size(256.dp)
                         .clip(CircleShape)
-                        .background(Color.Green),
+                        .background(Color.Green)
+                        .padding(16.dp),
                     painter = painterResource(R.drawable.logo),
-                    contentDescription = null,
+                    contentDescription = "The Logo of the app",
                     contentScale = ContentScale.Fit,
                 )
             }
