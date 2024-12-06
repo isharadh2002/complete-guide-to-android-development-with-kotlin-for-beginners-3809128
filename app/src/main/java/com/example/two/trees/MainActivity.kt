@@ -17,6 +17,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -44,6 +47,7 @@ fun TwoTreesApp() {
         ) { innerPadding ->
             val image1 = "https://bit.ly/android_dev_image1"
             val image2 = "https://bit.ly/android_dev_image2"
+            val checked :Boolean by remember { mutableStateOf("") }
 
             Column(
                 modifier = Modifier
@@ -53,7 +57,7 @@ fun TwoTreesApp() {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 SwitchWithLabel(
-                    checked = , // TODO: added needed variable
+                    checked = checked, // TODO: added needed variable
                     onCheckedChange = {
                         // TODO: change state of checked variable
                     },
@@ -63,7 +67,7 @@ fun TwoTreesApp() {
                 Spacer(modifier = Modifier.height(32.dp))
 
                 AsyncImage(
-                    model = , // TODO: display correct image,
+                    model = if (checked) image1 else image2, // TODO: display correct image,
                     modifier = Modifier.size(300.dp),
                     contentScale = ContentScale.Fit,
                     contentDescription = "friendly robot"
