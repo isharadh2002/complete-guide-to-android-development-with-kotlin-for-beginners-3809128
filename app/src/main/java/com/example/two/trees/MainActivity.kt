@@ -68,8 +68,7 @@ fun TwoTreesApp() {
                     painter = painterResource(imageId),
                     modifier = Modifier.size(256.dp)
                         .clip(RoundedCornerShape(25.dp))
-                        .background(Color.Green)
-                        .padding(15.dp),
+                        .background(Color.Green),
                     contentScale = ContentScale.Fit,
                     contentDescription = null
                 )
