@@ -87,9 +87,9 @@ fun TwoTreesApp() {
                 Image(
                     painter = painterResource(imageId),
                     modifier = Modifier.size(256.dp)
-                        .clip(RoundedCornerShape(10.dp))
+                        .clip(RoundedCornerShape(20.dp))
                         .background(color = MaterialTheme.colorScheme.primaryContainer)
-                        .padding(10.dp),
+                        .padding(if (imageId == R.drawable.olive_branch_vector) 20.dp else 0.dp),
                     contentScale = ContentScale.Fit,
                     contentDescription = null,
                 )
