@@ -14,14 +14,15 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableIntState
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -34,6 +35,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.myspecial.application.R
 import com.example.two.trees.ui.compose.TwoTreesAppBar
+import com.example.two.trees.ui.compose.TwoTreesBottomAppBar
 import com.example.two.trees.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -53,18 +55,25 @@ fun TwoTreesApp() {
             modifier = Modifier.fillMaxSize(),
             topBar = {
                 TwoTreesAppBar()
+            },
+            bottomBar = {
+                TwoTreesBottomAppBar()
             }
         ) { innerPadding ->
-            val imageID: MutableIntState = remember { mutableIntStateOf(R.drawable.olive_branch_vector) }
+            val imageID: MutableIntState =
+                remember { mutableIntStateOf(R.drawable.olive_branch_vector) }
             val imageID2: MutableIntState = remember { mutableIntStateOf(R.drawable.logo) }
 
             Column(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(innerPadding)
+                    .verticalScroll(rememberScrollState()),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 ImageSwapper(
-                    modifier = Modifier.padding(innerPadding),
+                    modifier = Modifier.padding(25.dp),
                     imageID = imageID.intValue,
                     swapFunction = {
                         if (imageID.intValue == R.drawable.olive_branch_vector) {
@@ -76,7 +85,7 @@ fun TwoTreesApp() {
                 )
 
                 ImageSwapper(
-                    modifier = Modifier.padding(innerPadding),
+                    modifier = Modifier.padding(25.dp),
                     imageID = imageID2.intValue,
                     swapFunction = {
                         if (imageID2.intValue == R.drawable.olive_branch_vector) {
@@ -100,7 +109,7 @@ fun ImageSwapper(
     Column(
         modifier = modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
 
 
