@@ -103,7 +103,8 @@ fun SwitchWithLabel(
 @Preview(
     showBackground = true,
     device = Devices.NEXUS_5,
-    name = "Nexus 5"
+    name = "Nexus 5",
+    uiMode = android.content.res.Configuration.UI_MODE_NIGHT_NO
 )
 @Composable
 fun MyComposableNexusPreview() {
